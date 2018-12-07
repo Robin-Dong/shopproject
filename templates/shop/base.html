@@ -1,25 +1,29 @@
+{% load i18n %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Shein{% endblock %}</title>
+    <title>{% block title %}{% trans "My shop" %}{% endblock %}</title>
     <link href="{% static 'shop/css/base.css' %}" rel="stylesheet">
 </head>
 <body>
 <div id="header">
-    <a href="/" class="logo">My shop</a>
+    <a href="/" class="logo">{% trans "My shop" %}</a>
 </div>
 <div id="subheader">
     <div class="cart">
         {% with total_items=cart|length %}
         {% if cart|length > 0 %}
-            Your cart:
-            <a href="{% url 'cart:cart_detail' %}">{{ total_items }} item{{ total_items|pluralize }},
-            ${{ cart.get_total_price }}
+            {% trans "Your cart" %}:
+            <a href="{% url 'cart:cart_detail' %}">
+                {% blocktrans with total_items_plural=total_items|pluralize total_price=cart.get_total_price %}
+                {{ total_items }} item{{ total_items_plural }},
+                ${{ total_price }}
+                {% endblocktrans %}
             </a>
         {% else %}
-            Your cart is empty.
+            {% trans "Your cart is empty." %}
         {% endif %}
     {% endwith %}
     </div>

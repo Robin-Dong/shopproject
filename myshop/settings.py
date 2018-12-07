@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'rosetta',
 
 ]
 
@@ -163,3 +164,7 @@ Configuration.configure(
 LOCALE_PATH = (
     os.path.join(BASE_DIR, 'locale/'),
 )
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1
