@@ -1,6 +1,6 @@
 ## E-shop project/Django实现商城网站
 
-## 技术 Python3.4，Django2.0，MySQL，Celery，
+## 技术 Python3.6，Django2.0，MySQL，Celery
 
 ## 实现功能点
 
